@@ -1,82 +1,4 @@
-// var maxLength = 10;
-// var lines = [];
-//
-// //初期化関数
-// function setup() {
-//     frameRate(10);
-//
-//     //canvas
-//     createCanvas(window.windowWidth, window.windowHeight);
-//
-//
-//
-//     _.each(_.range(maxLength), function(v, i) {
-//         lines[i] = new Line(i);
-//     });
-//
-//
-//
-// }
-//
-//
-// //canvasに描画　毎フレーム実行される
-// function draw() {
-//     //背景を塗りつぶし
-//     background(0, 0, 0);
-//
-//     _.each(lines, function(line) {
-//         line.draw();
-//     });
-//
-// }
-//
-// function Line(index) {
-//     var self = this;
-//     this.x = window.windowWidth / maxLength * index;
-//     this.y = window.windowHeight;
-//     this.speed = index;
-//     this.maxLength = 10;
-//     this.particles = _.map(_.range(this.maxLength), function() {
-//         return new Particle(self.x, self.y);
-//     });
-//
-//     this.draw = function() {
-//         if(this.y < 0){
-//           return;
-//         }
-//         this.y += (0 - this.y) / this.speed;
-//
-//         line(this.x, window.windowHeight, this.x, this.y);
-//
-//         stroke(255);
-//
-//         _.each(this.particles, function(particle) {
-//             particle.draw(self.x, self.y);
-//         })
-//     }
-// }
-//
-//
-// function Particle(startX, startY) {
-//
-//     this.startX = startX;
-//     this.startY = startY;
-//     var graphic = createGraphics(1,1);
-//     var y = 0;
-//
-//     this.draw = function(currentX, currentY) {
-//         graphic.background('rgba(0,255,0, 0.25)');
-//         graphic.noStroke();
-//         graphic.rect(0, 0, 1, 1);
-//         y += 10;
-//
-//         image(graphic, currentX, currentY + y);
-//         image(graphic, currentX+10, currentY + y);
-//     }
-// }
 
-
-//var offsetAngle =0,
 var particle,
     particles = [],
     ctx;
@@ -103,7 +25,10 @@ function draw() {
         p.update();
     }
 
-    particles.shift();
+    for (i = 0; i < 24; i++) {
+        particles.shift();
+    }
+
 
 }
 
